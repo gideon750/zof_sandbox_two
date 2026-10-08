@@ -1,0 +1,15 @@
+{
+  "name": "part3-collector",
+  "version": "0.1.0",
+  "private": true,
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "express": "*",
+    "@prisma/client": "*",
+    "axios": "*"
+  }
+}
