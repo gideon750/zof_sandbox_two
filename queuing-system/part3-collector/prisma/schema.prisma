@@ -1,0 +1,6 @@
+model Result {
+  id        Int      @id @default(autoincrement())
+  jobId     Int
+  outcome   String
+  createdAt DateTime @default(now())
+}

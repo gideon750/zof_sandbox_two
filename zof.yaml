@@ -1,0 +1,23 @@
+# Facts about this repository for the Zof System Graph. Read from the default branch only.
+version: 1
+services:
+  queuing-system:
+    path: queuing-system
+    tier: 0
+    owner: team-core
+  part1-forwarder:
+    path: queuing-system/part1-forwarder
+    tier: 0
+    owner: team-core
+  part2-processor:
+    path: queuing-system/part2-processor
+    tier: 0
+    owner: team-core
+  part3-collector:
+    path: queuing-system/part3-collector
+    tier: 0
+    owner: team-platform
+  payments:
+    path: services/payments
+    tier: 0
+    owner: team-core

@@ -1,0 +1,14 @@
+{
+  "name": "part2-processor",
+  "version": "0.1.0",
+  "private": true,
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "express": "*",
+    "axios": "*"
+  }
+}
