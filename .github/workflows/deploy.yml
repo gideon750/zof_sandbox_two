@@ -14,14 +14,15 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
     steps:
-      # The release gate: no successful Zof / Control decision on this exact commit, no deploy.
+      # The release gate: no successful Zof / Control decision on this exact commit, posted by the Zof App
+      # itself (a same-named check from any other app or workflow is ignored), no deploy.
       - name: Zof release gate
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           for i in $(seq 24); do
             r=$(gh api "repos/$GITHUB_REPOSITORY/commits/$GITHUB_SHA/check-runs?check_name=Zof%20%2F%20Control" \
-                --jq '.check_runs | sort_by(.id) | last | [.status // "", .conclusion // "", .output.title // ""] | @tsv')
+                --jq '[.check_runs[] | select(.app.slug == "zof-control-plane-gideon750")] | sort_by(.id) | last | [.status // "", .conclusion // "", .output.title // ""] | @tsv')
             status=$(cut -f1 <<<"$r"); conclusion=$(cut -f2 <<<"$r"); title=$(cut -f3 <<<"$r")
             [ "$status" = "completed" ] && break
             echo "Waiting for a Zof decision on $GITHUB_SHA ($i/24)"; sleep 5
