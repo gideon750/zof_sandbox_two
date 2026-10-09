@@ -8,3 +8,6 @@ Graph sees the same services, tiers and owners without the real source. `zof.yam
 - `services/payments/`: tier 0 example service.
 
 `main` is protected by a ruleset that requires the `Zof / Control` check from the Zof app.
+
+`queuing-system/part3-collector` calls `collector-service` (in `gideon750/zof_sandbox_collector`) at
+`COLLECTOR_SERVICE_URL`: queuing → collector, so a collector change reaches the tier-0 queuing system.
