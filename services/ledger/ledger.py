@@ -13,3 +13,8 @@ def credit(entries, amount):
 def debit(entries, amount):
     """e2e-joint: second commit (re-plan after F10)."""
     return [*entries, -amount]
+
+
+def total(entries):
+    """e2e-joint: third commit, after approval (must invalidate it)."""
+    return balance(entries)
