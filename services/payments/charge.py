@@ -15,3 +15,6 @@ def charge_with_retry(amount_cents: int, attempts: int = 3) -> dict[str, int | s
         except ValueError as exc:
             last = exc
     raise RuntimeError("charge failed") from last
+
+# e2e-joint 1791809710: retry budget note (integration test change)
+E2E_JOINT_RETRY_BUDGET = 3
