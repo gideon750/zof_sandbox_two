@@ -21,3 +21,7 @@ services:
     path: services/payments
     tier: 0
     owner: team-core
+  ledger:                 # e2e-joint (2026-10-12): a tier-1 service, so a change has a requirement set Verification can satisfy today
+    path: services/ledger
+    tier: 1
+    owner: team-core
